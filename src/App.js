@@ -1,25 +1,60 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  return (
+  const [view, setView] = useState('home'); // Tila näkymän vaihtoon
+
+  const renderView = () => {
+    switch (view) {
+      case 'admin':
+        return <AdminPage />;
+      case 'consultant':
+        return <ConsultantPage />;
+      default:
+        return <HomePage />;
+    }
+  };
+
+  const HomePage = () => (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. Moro matias. Moro jami
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Osaamisenhallintajärjestelmä</h1>
+        <p>Valitse käyttäjärooli ja aloita käyttö.</p>
+        <div>
+          <button className="App-button" onClick={() => setView('admin')}>
+            Pääkäyttäjä
+          </button>
+          <button className="App-button" onClick={() => setView('consultant')}>
+            Konsultti
+          </button>
+        </div>
       </header>
     </div>
   );
+
+  const AdminPage = () => (
+    <div className="App">
+      <header className="App-header">
+        <h2>Pääkäyttäjän sivu</h2>
+        <button className="App-button" onClick={() => setView('home')}>
+          Takaisin
+        </button>
+      </header>
+    </div>
+  );
+
+  const ConsultantPage = () => (
+    <div className="App">
+      <header className="App-header">
+        <h2>Konsultin sivu</h2>
+        <button className="App-button" onClick={() => setView('home')}>
+          Takaisin
+        </button>
+      </header>
+    </div>
+  );
+
+  return <div>{renderView()}</div>;
 }
 
 export default App;
