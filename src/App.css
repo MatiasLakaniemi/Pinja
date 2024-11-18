@@ -2,8 +2,14 @@
   text-align: center;
 }
 
+.App-logo {
+  max-width: 500px; /* Määritä haluttu koko */
+  height: auto;     /* Säilyttää kuvan mittasuhteet */
+  margin-bottom: 20px; /* Väli tekstin ja logon väliin */
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: #e30059;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,7 +24,7 @@
   padding: 10px 20px;
   font-size: 1rem;
   color: white;
-  background-color: #61dafb;
+  background-color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -27,4 +33,15 @@
 
 .App-button:hover {
   background-color: #21a1f1;
+}
+
+.App-footer {
+  background-color: black;  
+  color: white;               
+  text-align: center;         
+  padding: 20px 0;             
+  position: relative;
+  bottom: 0;
+  width: 100%;                
+  margin-top: auto;           
 }
