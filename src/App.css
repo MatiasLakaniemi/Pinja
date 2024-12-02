@@ -3,9 +3,9 @@
 }
 
 .App-logo {
-  max-width: 500px; /* Määritä haluttu koko */
-  height: auto;     /* Säilyttää kuvan mittasuhteet */
-  margin-bottom: 20px; /* Väli tekstin ja logon väliin */
+  max-width: 500px; 
+  height: auto;     
+  margin-bottom: 20px; 
 }
 
 .App-header {
