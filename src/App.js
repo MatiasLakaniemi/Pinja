@@ -6,10 +6,7 @@ import ConsultantPage from './Pages/ConsultantPage';
 
 function App() {
   const [view, setView] = useState('home');
-  const [consultants, setConsultants] = useState([
-    { id: 1, name: 'Matti Meikäläinen', technology: 'React', years: 3, certification: 'AWS Certified' },
-    { id: 2, name: 'Maija Virtanen', technology: 'Node.js', years: 5, certification: 'Azure Certified' },
-  ]);
+  const [consultants, setConsultants] = useState([]);
 
   const handleAddConsultant = (newConsultant) => {
     setConsultants((prevConsultants) => [

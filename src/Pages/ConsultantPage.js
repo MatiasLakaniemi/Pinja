@@ -3,9 +3,13 @@ import React, { useState } from 'react';
 const ConsultantPage = ({ addConsultant, setView }) => {
   const [newConsultant, setNewConsultant] = useState({
     name: '',
-    technology: '',
-    years: '',
-    certification: '',
+    educationLevel: '',
+    program: '',
+    graduationYear: '',
+    certifications: '',
+    experience: '',
+    projects: '',
+    workYears: '',
   });
 
   const handleChange = (e) => {
@@ -15,8 +19,17 @@ const ConsultantPage = ({ addConsultant, setView }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addConsultant(newConsultant); // Lisää uusi konsultti yhteiseen tilaan
-    setNewConsultant({ name: '', technology: '', years: '', certification: '' }); // Tyhjennä lomake
+    addConsultant(newConsultant);
+    setNewConsultant({
+      name: '',
+      educationLevel: '',
+      program: '',
+      graduationYear: '',
+      certifications: '',
+      experience: '',
+      projects: '',
+      workYears: '',
+    });
     alert('Konsultti lisätty!');
   };
 
@@ -37,33 +50,64 @@ const ConsultantPage = ({ addConsultant, setView }) => {
           </label>
           <br />
           <label>
-            Teknologia:
+            Koulutusaste:
             <input
               type="text"
-              name="technology"
-              value={newConsultant.technology}
+              name="educationLevel"
+              value={newConsultant.educationLevel}
               onChange={handleChange}
               required
             />
           </label>
           <br />
           <label>
-            Kokemus (vuotta):
+            Koulutusohjelma:
+            <input
+              type="text"
+              name="program"
+              value={newConsultant.program}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Valmistumisvuosi:
             <input
               type="number"
-              name="years"
-              value={newConsultant.years}
+              name="graduationYear"
+              value={newConsultant.graduationYear}
               onChange={handleChange}
               required
             />
           </label>
           <br />
           <label>
-            Sertifikaatti:
+            Sertifikaatit ja kurssit:
             <input
               type="text"
-              name="certification"
-              value={newConsultant.certification}
+              name="certifications"
+              value={newConsultant.certifications}
+              onChange={handleChange}
+            />
+          </label>
+          <br />
+          <label>
+            Projekti- ja teknologiakokemus:
+            <textarea
+              name="projects"
+              value={newConsultant.projects}
+              onChange={handleChange}
+              rows="3"
+            />
+          </label>
+          <br />
+          <label>
+            Työkokemuksen kesto / aloitusvuosi:
+            <input
+              type="text"
+              name="workYears"
+              value={newConsultant.workYears}
               onChange={handleChange}
               required
             />

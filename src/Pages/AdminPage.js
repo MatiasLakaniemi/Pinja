@@ -10,8 +10,9 @@ const AdminPage = ({ consultants, setConsultants, setView }) => {
     return consultants.filter(
       (c) =>
         c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        c.technology.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        c.certification.toLowerCase().includes(searchQuery.toLowerCase())
+        c.educationLevel.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        c.certifications.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        c.projects.toLowerCase().includes(searchQuery.toLowerCase())
     );
   };
 
@@ -33,22 +34,23 @@ const AdminPage = ({ consultants, setConsultants, setView }) => {
     <div className="App">
       <header className="App-header">
         <h2>Pääkäyttäjän hallinta</h2>
-        <div>
-          <input
-            type="text"
-            placeholder="Hae konsulttia"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
+        <input
+          type="text"
+          placeholder="Hae konsulttia"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
         <div>
           {handleSearch().map((consultant) => (
             <div key={consultant.id} style={{ margin: '10px 0' }}>
               <p>
                 <strong>Nimi:</strong> {consultant.name} <br />
-                <strong>Teknologia:</strong> {consultant.technology} <br />
-                <strong>Kokemus:</strong> {consultant.years} vuotta <br />
-                <strong>Sertifikaatti:</strong> {consultant.certification}
+                <strong>Koulutusaste:</strong> {consultant.educationLevel} <br />
+                <strong>Koulutusohjelma:</strong> {consultant.program} <br />
+                <strong>Valmistumisvuosi:</strong> {consultant.graduationYear} <br />
+                <strong>Sertifikaatit:</strong> {consultant.certifications} <br />
+                <strong>Projekti- ja teknologiakokemus:</strong> {consultant.projects} <br />
+                <strong>Työkokemus / aloitusvuosi:</strong> {consultant.workYears} <br />
               </p>
               <button onClick={() => handleEdit(consultant.id)}>Muokkaa</button>
             </div>
@@ -56,14 +58,84 @@ const AdminPage = ({ consultants, setConsultants, setView }) => {
         </div>
         {selectedConsultant && (
           <div>
-            <h3>Muokkaa tietoja</h3>
-            <input
-              type="text"
-              value={selectedConsultant.name}
-              onChange={(e) =>
-                setSelectedConsultant({ ...selectedConsultant, name: e.target.value })
-              }
-            />
+            <h3>Muokkaa konsultin tietoja</h3>
+            <label>
+              Nimi:
+              <input
+                type="text"
+                value={selectedConsultant.name}
+                onChange={(e) =>
+                  setSelectedConsultant({ ...selectedConsultant, name: e.target.value })
+                }
+              />
+            </label>
+            <br />
+            <label>
+              Koulutusaste:
+              <input
+                type="text"
+                value={selectedConsultant.educationLevel}
+                onChange={(e) =>
+                  setSelectedConsultant({ ...selectedConsultant, educationLevel: e.target.value })
+                }
+              />
+            </label>
+            <br />
+            <label>
+              Koulutusohjelma:
+              <input
+                type="text"
+                value={selectedConsultant.program}
+                onChange={(e) =>
+                  setSelectedConsultant({ ...selectedConsultant, program: e.target.value })
+                }
+              />
+            </label>
+            <br />
+            <label>
+              Valmistumisvuosi:
+              <input
+                type="number"
+                value={selectedConsultant.graduationYear}
+                onChange={(e) =>
+                  setSelectedConsultant({ ...selectedConsultant, graduationYear: e.target.value })
+                }
+              />
+            </label>
+            <br />
+            <label>
+              Sertifikaatit ja kurssit:
+              <input
+                type="text"
+                value={selectedConsultant.certifications}
+                onChange={(e) =>
+                  setSelectedConsultant({ ...selectedConsultant, certifications: e.target.value })
+                }
+              />
+            </label>
+            <br />
+            <label>
+              Projekti- ja teknologiakokemus:
+              <textarea
+                value={selectedConsultant.projects}
+                onChange={(e) =>
+                  setSelectedConsultant({ ...selectedConsultant, projects: e.target.value })
+                }
+                rows="3"
+              />
+            </label>
+            <br />
+            <label>
+              Työkokemus / aloitusvuosi:
+              <input
+                type="text"
+                value={selectedConsultant.workYears}
+                onChange={(e) =>
+                  setSelectedConsultant({ ...selectedConsultant, workYears: e.target.value })
+                }
+              />
+            </label>
+            <br />
             <button onClick={handleSave}>Tallenna</button>
           </div>
         )}
