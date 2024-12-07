@@ -120,12 +120,11 @@ const ConsultantPage = ({ addConsultant, setView }) => {
           <br />
           <label>
             Projekti- ja teknologiakokemus:
-         <textarea
+         <input
          name="projects"
          value={isEditing ? editConsultant.projects : newConsultant.projects}
          onChange={handleChange}
-         rows="3"
-         style={{ resize: 'none' }} 
+         
         />
          </label>
           <br />
