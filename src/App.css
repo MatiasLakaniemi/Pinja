@@ -3,9 +3,9 @@
 }
 
 .App-logo {
-  max-width: 500px; 
-  height: auto;     
-  margin-bottom: 20px; 
+  max-width: 500px;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 .App-header {
@@ -36,60 +36,89 @@
 }
 
 .App-footer {
-  background-color: black;  
-  color: white;               
-  text-align: center;         
-  padding: 20px 0;             
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
   position: relative;
   bottom: 0;
-  width: 100%;                
-  margin-top: auto;           
+  width: 100%;
+  margin-top: auto;
 }
 
-form {
+.login-form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+  width: 100%;
+  max-width: 500px; 
+  margin: 20px auto; 
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center; 
 }
 
-form label {
-  display: flex;
-  flex-direction: column;
+.login-form h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px; 
+}
+
+.login-form label {
   font-size: 1rem;
-  color: white;
+  color: #555;
+  display: block;
+  margin-bottom: 10px;
+  width: 100%; 
 }
 
-form input,
-form textarea {
-  padding: 10px;
+.login-form input {
+  padding: 12px;
   font-size: 1rem;
   border-radius: 5px;
   border: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 20px;
+  box-sizing: border-box; 
 }
 
-form button {
+.login-form input:focus {
+  border-color: #e30059;
+  outline: none;
+}
+
+.submit-btn,
+.cancel-btn {
+  background-color: #e30059;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%; 
   margin-top: 10px;
 }
 
-.consultant-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 20px;
+.submit-btn:hover,
+.cancel-btn:hover {
+  background-color: #d1004f;
 }
 
-.consultant-form label {
+.cancel-btn {
+  background-color: #ccc;
+  color: black;
+  margin-top: 20px; 
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
   margin-bottom: 10px;
 }
 
-.consultant-form input {
-  padding: 8px;
-  margin-bottom: 10px;
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.App-button {
+.admin-login-btn {
+  background-color: black;
   margin-top: 20px;
 }

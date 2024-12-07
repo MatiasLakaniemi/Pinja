@@ -1,0 +1,88 @@
+/* ConsultantPage.css tyylit vain konsulttisivulle */
+.consultant-page {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .consultant-page .App-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+  }
+  
+  .consultant-page h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .consultant-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  
+  .consultant-page form label {
+    font-size: 1rem;
+    color: #555;
+    font-weight: 600;
+  }
+  
+  .consultant-page form input,
+  .consultant-page form textarea {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    width: 100%;
+  }
+  
+  .consultant-page form input:focus,
+  .consultant-page form textarea:focus {
+    border-color: #e30059;
+    outline: none;
+  }
+  
+  .consultant-page form button {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    background-color: #e30059;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+  }
+  
+  .consultant-page form button:hover {
+    background-color: #d1004f;
+  }
+  
+  .consultant-page .App-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #e30059;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .consultant-page .App-button:hover {
+    background-color: #d1004f;
+  }
+
+  

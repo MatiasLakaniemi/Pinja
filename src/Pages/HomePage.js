@@ -31,10 +31,11 @@ const HomePage = ({ setView }) => {
         
         <h1>Osaamisenhallintajärjestelmä</h1>
         <p>Valitse käyttäjärooli ja aloita käyttö.</p>
+        
         <div>
           {/* Pääkäyttäjän kirjautumispainike */}
           {!isLoginVisible && !isAdminLoggedIn && (
-            <button className="App-button" onClick={() => setIsLoginVisible(true)}>
+            <button className="App-button admin-login-btn" onClick={() => setIsLoginVisible(true)}>
               Pääkäyttäjä
             </button>
           )}
@@ -43,10 +44,10 @@ const HomePage = ({ setView }) => {
           {isLoginVisible && (
             <form 
               onSubmit={handleLogin} 
-              style={{ textAlign: 'center', maxWidth: '300px', margin: '20px auto' }}
+              className="login-form"
             >
               <h2>Kirjaudu sisään</h2>
-              {error && <p style={{ color: 'red' }}>{error}</p>}
+              {error && <p className="error-message">{error}</p>}
               <label>
                 Käyttäjätunnus:
                 <input
@@ -67,10 +68,10 @@ const HomePage = ({ setView }) => {
                 />
               </label>
               <br />
-              <button type="submit">Kirjaudu</button>
+              <button type="submit" className="submit-btn">Kirjaudu</button>
               <button 
                 type="button" 
-                style={{ marginLeft: '10px' }} 
+                className="cancel-btn" 
                 onClick={() => setIsLoginVisible(false)}
               >
                 Peruuta

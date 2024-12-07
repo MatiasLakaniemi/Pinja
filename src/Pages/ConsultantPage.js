@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { jsPDF } from 'jspdf'; // Tuodaan jsPDF
+import './ConsultantPage.css'; // Tuodaan konsulttisivun tyylit
 
 const ConsultantPage = ({ addConsultant, setView }) => {
   const [newConsultant, setNewConsultant] = useState({
@@ -36,7 +37,12 @@ const ConsultantPage = ({ addConsultant, setView }) => {
       // Muuten lisätään uusi konsultti
       addConsultant(newConsultant, false);
     }
-    // Ei nollata lomaketta
+  };
+
+  // Tallennetaan muokattu konsultti
+  const handleSaveEdit = () => {
+    setNewConsultant(editConsultant);
+    setIsEditing(false);
   };
 
   // Luodaan PDF tiedosto
@@ -53,11 +59,11 @@ const ConsultantPage = ({ addConsultant, setView }) => {
   };
 
   return (
-    <div className="App">
+    <div className="consultant-page">
       <header className="App-header">
         <h2>Konsultin sivu</h2>
         {/* Lomake */}
-        <form onSubmit={handleSubmit} style={{ textAlign: 'left', maxWidth: '400px' }}>
+        <form onSubmit={handleSubmit} className="consultant-form">
           <label>
             Nimi:
             <input
@@ -114,13 +120,14 @@ const ConsultantPage = ({ addConsultant, setView }) => {
           <br />
           <label>
             Projekti- ja teknologiakokemus:
-            <textarea
-              name="projects"
-              value={isEditing ? editConsultant.projects : newConsultant.projects}
-              onChange={handleChange}
-              rows="3"
-            />
-          </label>
+         <textarea
+         name="projects"
+         value={isEditing ? editConsultant.projects : newConsultant.projects}
+         onChange={handleChange}
+         rows="3"
+         style={{ resize: 'none' }} 
+        />
+         </label>
           <br />
           <label>
             Työkokemus / aloitusvuosi:
