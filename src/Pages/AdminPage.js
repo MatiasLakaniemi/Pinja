@@ -4,6 +4,7 @@ const AdminPage = ({ consultants, setConsultants, setView }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedConsultant, setSelectedConsultant] = useState(null);
 
+  // Suodattaa konsultit haun perusteella
   const handleSearch = () => {
     if (!searchQuery) return consultants;
 
@@ -16,11 +17,13 @@ const AdminPage = ({ consultants, setConsultants, setView }) => {
     );
   };
 
+  // Muokkaa konsultin tietoja
   const handleEdit = (id) => {
     const consultant = consultants.find((c) => c.id === id);
     setSelectedConsultant(consultant);
   };
 
+  // Tallenna muokattu konsultti
   const handleSave = () => {
     setConsultants((prevConsultants) =>
       prevConsultants.map((c) =>
@@ -28,6 +31,13 @@ const AdminPage = ({ consultants, setConsultants, setView }) => {
       )
     );
     setSelectedConsultant(null);
+  };
+
+  // Poista konsultti
+  const handleRemove = (id) => {
+    if (window.confirm('Haluatko varmasti poistaa konsultin?')) {
+      setConsultants(consultants.filter((c) => c.id !== id));
+    }
   };
 
   return (
@@ -53,6 +63,10 @@ const AdminPage = ({ consultants, setConsultants, setView }) => {
                 <strong>Työkokemus / aloitusvuosi:</strong> {consultant.workYears} <br />
               </p>
               <button onClick={() => handleEdit(consultant.id)}>Muokkaa</button>
+              {/* Poista-painike */}
+              <button onClick={() => handleRemove(consultant.id)} style={{ marginLeft: '10px' }}>
+                Poista
+              </button>
             </div>
           ))}
         </div>

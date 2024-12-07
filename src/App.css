@@ -70,3 +70,26 @@ form textarea {
 form button {
   margin-top: 10px;
 }
+
+.consultant-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px;
+}
+
+.consultant-form label {
+  margin-bottom: 10px;
+}
+
+.consultant-form input {
+  padding: 8px;
+  margin-bottom: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.App-button {
+  margin-top: 20px;
+}
